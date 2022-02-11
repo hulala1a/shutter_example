@@ -5,14 +5,18 @@ const player = []
 
 const keyframes = (num, n, isFront) => [
   {
-    transform: `${isFront ? 'rotateY(0deg)' : 'rotateY(60deg)'}`,
-    transformOrigin: `${(100 / n) * (num + 1)}%`,
+    transform: isFront
+      ? "rotateY(0deg)"
+      : `rotateY(-120deg) translateX(${100 / n}%)`,
+    transformOrigin: `${(100 / n) * (num + 1)}%`
   },
   {
-    transform: `${isFront ? 'rotateY(120deg)' : 'rotateY(180deg)'} translateX(-${100 / n}%)`,
-    transformOrigin: `${(100 / n) * num}%`,
-  },
-]
+    transform: isFront
+      ? `rotateY(120deg) translateX(-${100 / n}%)`
+      : "rotateY(0deg) ",
+    transformOrigin: `${(100 / n) * num}%`
+  }
+];
 
 const options = {
   duration: 1000,
